@@ -1,6 +1,7 @@
 from uuid import uuid4 as uuid
 from datetime import datetime
 
+
 class BaseModel:
     def __init__(self):
         self.id = str(uuid())
@@ -12,6 +13,6 @@ class BaseModel:
 
     def save(self):
         self.updated_at = datetime.today().isoformat()
-    
+
     def to_dict(self):
         return {**self.__dict__, "__class__": self.__class__.__name__}
