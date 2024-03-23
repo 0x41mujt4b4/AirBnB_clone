@@ -4,12 +4,15 @@ from datetime import datetime
 
 class BaseModel:
     def __init__(self, *args, **kwargs):
-        # if kwargs is not None:
-        #    for key, value in kwargs.iteritems():
-        #        pass
         self.id = str(uuid())
         self.created_at = datetime.today()
         self.updated_at = datetime.today()
+        if kwargs is not None:
+            for key, value in kwargs.items():
+                if key == 'created_at' or key == 'updated_at':
+                    self.__dict__[key] = datetime.fromisoformat(value)
+                elif key != "__class__":
+                    self.__dict__[key] = value
 
     @property
     def _created_at(self):
