@@ -1,8 +1,16 @@
+#!/usr/bin/python3
+'''
+the model that contains BaseModel class
+'''
 from uuid import uuid4 as uuid
 from datetime import datetime
 
 
 class BaseModel:
+    '''
+    class BaseModel that defines all common attributes/methods
+    for other classes
+    '''
     def __init__(self, *args, **kwargs):
         self.id = str(uuid())
         self.created_at = datetime.today()
