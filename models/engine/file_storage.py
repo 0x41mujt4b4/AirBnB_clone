@@ -17,6 +17,7 @@ class FileStorage:
 
     def new(self, obj):
         self.__objects[obj['__class__'] + '.' + obj['id']] = obj
+
     def save(self):
         # serialize objects to the json file (path: __file_path)
         with open(self.__file_path, 'w') as file:
