@@ -16,7 +16,10 @@ class FileStorage:
         return self.__objects
 
     def new(self, obj):
-        self.__objects[obj['__class__'] + '.' + obj['id']] = obj
+        if type(obj) == dict:
+            self.__objects[obj['__class__'] + '.' + obj['id']] = obj
+        else:
+            self.__objects[obj.__class__.__name__ + '.' + obj.id]
 
     def update(self, obj_id, key, value):
         self.reload()
@@ -42,4 +45,4 @@ class FileStorage:
             with open(self.__file_path, 'r') as file:
                 self.__objects = json.load(file)
         except Exception as e:
-            print(e)
+            pass
