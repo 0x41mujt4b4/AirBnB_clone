@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Module of Unittests """
+""" Module of Unittests  of base_model_test.py"""
 import unittest
 from models.base_model import BaseModel
 import os
@@ -9,12 +9,12 @@ import datetime
 
 
 class BaseModelTests(unittest.TestCase):
-    """ Suite of Console Tests """
+    """ Class to test console """
 
     my_model = BaseModel()
 
     def testBaseModel1(self):
-        """ Test attributes value of a BaseModel instance """
+        """ This is a function that tests  attributes value of this class instance """
 
         self.my_model.name = "Holberton"
         self.my_model.my_number = 89
@@ -27,8 +27,7 @@ class BaseModelTests(unittest.TestCase):
         self.assertEqual(self.my_model.id, my_model_json['id'])
 
     def testSave(self):
-        """ Checks if save method updates the public instance instance
-        attribute updated_at """
+        """ This is a function that checks if save method updates the public instance """
         self.my_model.first_name = "First"
         self.my_model.save()
 
