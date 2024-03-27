@@ -48,6 +48,9 @@ class BaseModel:
         storage.save()
         self.updated_at = datetime.today()
 
+    def new(self, obj):
+        storage.new(obj.to_dict())
+
     def to_dict(self):
         dict_copy = self.__dict__.copy()
         dict_copy["created_at"] = self._created_at
