@@ -18,6 +18,8 @@
     justify-content: center;
 }
 .places article{
+    display: flex;
+    flex-direction: column;
     position: relative;
     width: 390px;
     margin: 20px;
